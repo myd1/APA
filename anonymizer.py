@@ -9,12 +9,13 @@
 from APA import APA
 from utils.read_data import read_data, read_tree
 from utils.save_result import save_to_file
+from utils.make_tree import gen_gh_trees
 import sys, copy
 import pdb
 
 
-
 # set k=10, l=5 as default!
+
 
 def get_result_one(att_trees, data, K=10, L=5):
     "fix K=10, L=5"
@@ -70,6 +71,9 @@ if __name__ == '__main__':
         L = int(sys.argv[3])
     except:
         pass
+    print '*'*30
+    # make generalization hierarchies
+    gen_gh_trees()
     #read gentree tax
     att_trees = read_tree()
     #read record
@@ -90,5 +94,6 @@ if __name__ == '__main__':
         get_result_one(att_trees, data)
     else:
         print "Usage: python anonymizer [k | l | data | apa]"
-    print "Finish 1M_Separation_APAeverse!!"
+    print "Finish APA!!"
+    print '*'*30
     
